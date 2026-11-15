@@ -1,0 +1,13 @@
+target:
+  name: chronic_absent_next_year
+  threshold: 0.10        # chronic absenteeism = missing >= 10% of enrolled days
+split:
+  year_col: school_year
+  test_year: 2024        # train on earlier years only
+review_capacity: [0.05, 0.10, 0.20]   # fractions of students/schools a team could support
+feature_groups:
+  attendance: [prior_absence_rate, month1_absence_rate, tardy_rate]
+  academics: [gpa, course_failures, reading_proficiency]
+  discipline: [suspensions]
+  neighborhood: [poverty_rate, rent_burden, single_parent_hh, no_vehicle_hh, no_broadband, limited_english_hh]
+  interview_themes: [theme_transportation, theme_housing, theme_caregiving, theme_health, theme_belonging, theme_food, theme_disengagement, theme_family_conflict]

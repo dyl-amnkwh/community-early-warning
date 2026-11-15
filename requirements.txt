@@ -1,0 +1,17 @@
+numpy
+pandas
+scikit-learn
+xgboost
+shap
+matplotlib
+plotly
+pyyaml
+geopandas
+libpysal
+esda
+folium
+streamlit
+sentence-transformers
+setfit
+bertopic
+pytest

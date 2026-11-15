@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+*.egg-info/
+.pytest_cache/
+.ipynb_checkpoints/
+
+# Data: never commit student records, interviews, or large files
+data/raw/*
+data/interim/*
+data/processed/*
+data/synthetic/*
+!data/**/.gitkeep
+*.csv
+*.parquet
+*.xlsx
+*.shp
+*.gpkg
+*.geojson
+
+# Interview transcripts and model artifacts
+transcripts/
+*.pkl
+*.joblib
+models/
+
+# Secrets / OS
+.env
+.DS_Store

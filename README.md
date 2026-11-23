@@ -1,5 +1,7 @@
 # Community Early-Warning: Chronic Absenteeism in DC Schools
 
+**Live dashboard:** https://community-early-warning-h9is76neip5bipi8isf6ph.streamlit.app/
+
 A capstone project asking whether community-level context improves how schools identify
 where students may need extra support, before attendance problems become chronic. It uses
 public school-level data for Washington, DC, and ends in an interactive dashboard.

@@ -126,3 +126,14 @@ MIT. See `LICENSE`.
 hool absenteeism hot spots](reports/figures/school_hotspots_2025.png)
 
 Association only, not causation. Tract values describe neighborhoods, not individual students.
+
+## XGBoost and SHAP
+
+`python -m ewp.xgb_shap` adds gradient-boosted trees to the same early-warning test (schools not yet in the top quarter; 2024 and 2025 test years) and explains the model with SHAP.
+
+- XGBoost did not beat the simple baseline of ranking schools by this year's rate (PR-AUC 0.32 vs 0.39). Only 28 schools moved into the top quarter, so differences are tentative.
+- Adding neighborhood indicators did not help XGBoost either: PR-AUC change -0.004 (95% interval -0.119 to +0.109).
+- SHAP: this year's absenteeism rate dominates (mean |SHAP| 2.45), followed by last year's rate (0.47). All other inputs are 0.29 or less.
+- SHAP describes what the model uses, not what causes absenteeism. Neighborhood values are shared by every school in a tract, so flexible models can use them to recognize schools.
+
+![SHAP importance](reports/figures/shap_importance.png)

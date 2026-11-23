@@ -1,0 +1,31 @@
+Schools NOT in the top quarter this year; will they be in it next year?
+Pooled test years [2024, 2025]: 344 school-years, 28 moved in (chance PR-AUC = 0.08)
+
+                     model  pr_auc  recall@10%  recall@20%  recall@30%
+baseline: this year's rate   0.392       0.536       0.821       0.893
+       logreg A_attendance   0.415       0.464       0.786       0.929
+logreg C_plus_neighborhood   0.346       0.429       0.750       0.893
+       forest A_attendance   0.343       0.429       0.714       0.857
+forest C_plus_neighborhood   0.372       0.393       0.786       0.893
+                 xgboost A   0.323       0.429       0.714       0.857
+                 xgboost C   0.319       0.357       0.714       0.821
+
+XGBoost: does neighborhood data help? (C minus A; 95% interval, resampling schools)
+  pr_auc     -0.004  (interval -0.119 to +0.109)
+  recall@20% +0.000  (interval -0.170 to +0.136)
+
+SHAP for the XGBoost model with all inputs, trained before 2025, explaining 172 2025 schools
+(mean absolute contribution, in log-odds; direction = how higher values move the score)
+           feature  mean_abs_shap higher_value_pushes
+        absent_pct          2.447             risk up
+         prior_pct          0.467             risk up
+       rent_burden          0.286             risk up
+limited_english_hh          0.234             risk up
+    no_internet_hh          0.163           risk down
+ change_from_prior          0.129             risk up
+      poverty_rate          0.104           risk down
+  median_hh_income          0.093           risk down
+     no_vehicle_hh          0.049             risk up
+           is_dcps          0.006             risk up
+
+SHAP explains the model, not causes. Neighborhood values are the same for every school in a tract, so a flexible model can use them to recognize schools (see grouped_check). Small number of positives: treat differences as tentative.

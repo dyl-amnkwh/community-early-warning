@@ -96,8 +96,6 @@ Setup: `pip install -r requirements.txt` and `pip install -e .`; run `pytest` fo
 
 ## Not done yet
 
-- XGBoost and SHAP explanations
-- Spatial statistics (Moran's I, hotspot analysis)
 - Fairness checks beyond school type, tract poverty, and grade level (for example ward,
   race/ethnicity, English learners, special education)
 - Interview-text theme detection: `src/ewp/themes.py` is an untested starting point and

@@ -2,16 +2,16 @@
 
 | Source | Use | Notes |
 |---|---|---|
-| Civil Rights Data Collection (CRDC) | School-level chronic absenteeism | Biennial |
-| NCES CCD and EDGE | School locations, neighborhood estimates | Link schools to tracts |
-| ACS 5-year (Census Bureau) | Tract-level socioeconomic indicators | Heavily collinear; use margins of error |
-| VDOE School Quality Profiles | Virginia school-level absenteeism | Case study |
-| Fairfax County Public Schools open data | District-level context | Check current availability |
-| Synthetic student-level data | Pipeline demo only | Must be labeled synthetic |
+| OSSE DC School Report Card attendance files | School-level chronic absenteeism, 2021-2025 | Manual download from osse.dc.gov; school-year labels vary by file |
+| Census ACS 5-year (2019-2023) | Tract indicators: poverty, income, rent burden, no vehicle, no internet, limited English | Census API; use margins of error in any further work |
+| DC Open Data: DC Public Schools and DC Charter Schools | School coordinates | Matched to OSSE by school code |
+| Census Geocoder | Assign each school's coordinates to a census tract | Current tract geography |
 
 ## Linking
-School lat/long -> census tract (geopandas spatial join) -> ACS tract features.
+OSSE school code -> location file (code match) -> coordinates -> census tract -> ACS indicators.
+
+## Rules
 
 ## Rules
 - Do not commit raw data. Record download dates and URLs here.
-- Student-level data requires a data-use agreement (FERPA). Interview data requires IRB review.
+- Student-level data would need a data-use agreement; interview data would need IRB review.

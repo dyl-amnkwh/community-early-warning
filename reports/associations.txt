@@ -1,0 +1,27 @@
+Schools in 2025: 229 (114 DCPS, 111 charter)
+
+Spearman correlation of each neighborhood indicator with the school's rate
+(+ means higher in tracts where more schools have high absenteeism)
+
+         indicator  rho_all  n_all  rho_dcps  n_dcps  rho_charter  n_charter
+      poverty_rate     0.35    225      0.48     114         0.18        111
+  median_hh_income    -0.39    218     -0.55     110        -0.09        108
+       rent_burden     0.24    225      0.34     114         0.11        111
+     no_vehicle_hh     0.24    225      0.24     114         0.23        111
+    no_internet_hh     0.33    225      0.53     114         0.04        111
+limited_english_hh    -0.19    225     -0.09     114        -0.30        111
+
+Neighborhood-only forest (trained on 2023-24, tested on 2025): R^2 = 0.54
+Permutation importance (drop in R^2 when the indicator is shuffled):
+
+         indicator  r2_drop    sd
+  median_hh_income    0.235 0.030
+      poverty_rate    0.181 0.025
+limited_english_hh    0.147 0.026
+     no_vehicle_hh    0.120 0.019
+    no_internet_hh    0.091 0.012
+       rent_burden    0.050 0.007
+
+Caution: these are associations between a school's tract and the school's rate.
+Charter schools draw students from across the city, so their tract is a weak proxy.
+Indicators are correlated, so importance is shared among them.

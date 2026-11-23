@@ -7,6 +7,9 @@ from pathlib import Path
 import pandas as pd
 import streamlit as st
 
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "src"))
+
 from ewp.watchlist import add_status, backtest, needs_profile, tract_cutoffs, watch_list
 
 PROC, REPORTS = Path("data/processed"), Path("reports")

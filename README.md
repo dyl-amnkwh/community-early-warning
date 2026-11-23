@@ -111,3 +111,18 @@ conversations, with human judgment first. See `docs/ethics_and_privacy.md`.
 ## License
 
 MIT. See `LICENSE`.
+
+## Hotspot analysis
+
+`python -m ewp.hotspots` maps where community need and school absenteeism cluster. It downloads Census tract boundaries on first run and writes `reports/hotspots.txt` and two figures.
+
+- Community need (an equal-weight average of standardized poverty, rent burden, no-vehicle and no-internet rates) clusters strongly across 204 DC tracts: Moran's I = 0.43, p = 0.001.
+- 2025 school absenteeism also clusters: Moran's I = 0.37 for DCPS schools, 0.23 with charters included. Charters draw students citywide, so their location is a weak proxy.
+- Getis-Ord Gi* finds 24 hot-spot schools (mean absenteeism 56%, mean need +0.72) and 24 cold-spot schools (mean 17%, mean need -0.37). Hot spots are mostly DCPS (17 of 24).
+- A hot spot means a school's rate is high compared with its 8 nearest schools. It is not the same as high need. The hot-spot list is exploratory, with no multiple-testing correction. Unusual programs, such as an alternative school with a very high rate, should be checked before being reported.
+
+![Community need by tract](reports/figures/need_map.png)
+![Sc
+hool absenteeism hot spots](reports/figures/school_hotspots_2025.png)
+
+Association only, not causation. Tract values describe neighborhoods, not individual students.

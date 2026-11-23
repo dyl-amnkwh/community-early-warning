@@ -82,7 +82,7 @@ with tab_evidence:
 - **Tract indicators alone explain roughly 17% of the variation** in school rates for schools
   in tracts the model had not seen (23% for DCPS, 7% for charters).
 """)
-    for name in ("early_warning_test", "dcps_check", "grouped_check", "associations"):
+    for name in ("early_warning_test", "dcps_check", "grouped_check", "fairness_check", "associations"):
         f = REPORTS / f"{name}.txt"
         if f.exists():
             with st.expander(f"Full output: {name}"):
@@ -94,6 +94,8 @@ with tab_limits:
 - **Association, not cause.** Neighborhood indicators go with absenteeism; they do not explain it.
 - **Charter schools draw students citywide,** so a charter's tract says little about its students.
 - **Small samples.** About 230 schools and four year-to-year transitions; 2021 was a pandemic year.
+- **Charter schools.** The list is less precise for charters: roughly one in eight listed
+  charter schools later entered the top quarter, versus about half of listed DCPS schools.
 - **A simple rule works.** The ranking here is just this year's rate; models did not beat it.
 - **Human judgment first.** Use this list to start conversations and offer support, not to label schools.
 """)

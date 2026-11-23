@@ -26,6 +26,12 @@ a score for ranking rare cases; chance equals the share of positive schools.
 - **A methods lesson.** A random forest using only tract indicators looked strong (R^2 0.44
   with a random split) but fell to 0.05 when whole tracts were held out. It was memorizing
   schools, not learning a neighborhood pattern. Linear models did not have this problem.
+- **A fairness check found one clear gap.** The list is much less precise for charter
+  schools: about half of listed DCPS schools later entered the top quarter, against roughly
+  one in eight charter schools (the intervals do not overlap). Capture was similar across
+  groups but rests on few cases. The list also falls more often on schools in higher-poverty
+  tracts (35% of them vs 10% in lower-poverty tracts), where more of the schools that moved
+  in were.
 
 These results come from about 230 schools and four year-to-year transitions. Treat them as
 exploratory, not definitive.
@@ -76,6 +82,7 @@ Set a free Census API key, then run in order:
     python -m ewp.associations
     python -m ewp.grouped_check
     python -m ewp.dcps_check
+    python -m ewp.fairness
 
 Setup: `pip install -r requirements.txt` and `pip install -e .`; run `pytest` for the tests.
 
@@ -91,7 +98,8 @@ Setup: `pip install -r requirements.txt` and `pip install -e .`; run `pytest` fo
 
 - XGBoost and SHAP explanations
 - Spatial statistics (Moran's I, hotspot analysis)
-- Subgroup fairness audit
+- Fairness checks beyond school type, tract poverty, and grade level (for example ward,
+  race/ethnicity, English learners, special education)
 - Interview-text theme detection: `src/ewp/themes.py` is an untested starting point and
   needs real, consented interview data.
 

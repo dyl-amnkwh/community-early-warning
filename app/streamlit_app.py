@@ -88,6 +88,15 @@ with tab_evidence:
             with st.expander(f"Full output: {name}"):
                 st.code(f.read_text(encoding="utf-8"))
 
+    st.markdown("#### Where need and absenteeism cluster")
+    for img, cap in (
+        ("reports/figures/need_map.png", "Community need by census tract (ACS 2023), with school locations."),
+        ("reports/figures/school_hotspots_2025.png",
+         "Hot and cold spots of 2025 absenteeism (each school vs. its 8 nearest). Exploratory; association only."),
+    ):
+        if Path(img).exists():
+            st.image(img, caption=cap)
+
 with tab_limits:
     st.markdown("""
 - **Schools, not students.** No student records are used; patterns here may not hold for individuals.

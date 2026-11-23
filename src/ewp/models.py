@@ -19,7 +19,7 @@ def build_logreg(C: float = 0.5):
     return make_pipeline(
         SimpleImputer(strategy="median"),
         StandardScaler(),
-        LogisticRegression(C=C, penalty="l2", class_weight="balanced", max_iter=1000),
+        LogisticRegression(C=C, class_weight="balanced", max_iter=1000),
     )
 
 

@@ -1,0 +1,34 @@
+
+=== DCPS schools: all schools scored ===
+  test year 2024: 113 schools, 26 in the top quarter next year
+  test year 2025: 114 schools, 33 in the top quarter next year
+  pooled: 227 school-years, 59 positives (base rate 0.26)
+
+                     model  pr_auc  recall@10%  recall@20%  recall@30%
+                  baseline   0.865       0.373       0.627       0.831
+logreg N_neighborhood_only   0.534       0.271       0.407       0.627
+       logreg A_attendance   0.863       0.373       0.627       0.847
+ logreg B_plus_school_type   0.863       0.373       0.627       0.847
+logreg C_plus_neighborhood   0.854       0.356       0.593       0.847
+
+C minus A (neighborhood added to attendance); 95% interval, resampling schools
+  pr_auc     -0.008  (interval -0.036 to +0.020)
+  recall@20% -0.034  (interval -0.065 to +0.065)
+
+=== DCPS schools not yet in the top quarter (small numbers) ===
+  test year 2024: 90 schools, 9 in the top quarter next year
+  test year 2025: 88 schools, 11 in the top quarter next year
+  pooled: 178 school-years, 20 positives (base rate 0.11)
+
+                     model  pr_auc  recall@10%  recall@20%  recall@30%
+                  baseline   0.507        0.50        0.80        0.95
+logreg N_neighborhood_only   0.600        0.40        0.75        0.85
+       logreg A_attendance   0.557        0.50        0.75        0.95
+ logreg B_plus_school_type   0.557        0.50        0.75        0.95
+logreg C_plus_neighborhood   0.569        0.55        0.80        0.90
+
+C minus A (neighborhood added to attendance); 95% interval, resampling schools
+  pr_auc     +0.011  (interval -0.104 to +0.186)
+  recall@20% +0.050  (interval -0.111 to +0.176)
+
+If an interval includes 0, the difference could be chance.

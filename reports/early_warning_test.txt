@@ -1,0 +1,24 @@
+Schools NOT in the top quarter this year; will they be in it next year?
+
+  test year 2024: 172 schools, 15 moved into the top quarter
+  test year 2025: 172 schools, 13 moved into the top quarter
+  pooled: 344 school-years, 28 moved in (chance level for PR-AUC = base rate 0.08)
+
+                     model  pr_auc  recall@10%  recall@20%  recall@30%
+baseline: this year's rate   0.392       0.536       0.821       0.893
+logreg N_neighborhood_only   0.189       0.214       0.464       0.643
+       logreg A_attendance   0.415       0.464       0.786       0.929
+ logreg B_plus_school_type   0.441       0.500       0.750       0.929
+logreg C_plus_neighborhood   0.346       0.429       0.750       0.893
+forest N_neighborhood_only   0.201       0.321       0.464       0.500
+       forest A_attendance   0.343       0.429       0.714       0.857
+ forest B_plus_school_type   0.355       0.464       0.714       0.893
+forest C_plus_neighborhood   0.372       0.393       0.786       0.893
+
+Does neighborhood data help? (C minus A; 95% interval, resampling schools)
+  logreg  pr_auc     -0.069  (interval -0.168 to +0.032)
+  logreg  recall@20% -0.036  (interval -0.130 to +0.132)
+  forest  pr_auc     +0.029  (interval -0.124 to +0.127)
+  forest  recall@20% +0.071  (interval -0.117 to +0.227)
+
+Small numbers of positives mean wide uncertainty. Intervals that include 0 could be chance.

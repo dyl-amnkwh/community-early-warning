@@ -1,0 +1,37 @@
+Community need index, 204 tracts: Moran's I = 0.43 (random would be -0.005), p = 0.001
+(need index = equal-weight average of standardized poverty, rent burden, no-vehicle, no-internet)
+
+2025 absenteeism rate, all located schools (225): Moran's I = 0.23 (random would be -0.004), p = 0.001
+2025 absenteeism rate, DCPS schools only (114): Moran's I = 0.37 (random would be -0.009), p = 0.001
+
+Getis-Ord Gi* hot and cold spots of 2025 absenteeism (each school vs. its 8 nearest)
+                 schools  mean_rate  mean_need  dcps  charter
+spot                                                         
+cold spot             24      17.10      -0.37    22        2
+hot spot              24      56.27       0.72    17        7
+not significant      177      40.70       0.08    75      102
+
+Hot-spot schools (exploratory; no correction for multiple tests):
+                                 school_name  sector  absent_pct
+                     Ballou STAY High School    dcps        98.3
+                       Anacostia High School    dcps        87.0
+                          Ballou High School    dcps        86.2
+                                    IDEA PCS charter        83.0
+ Bard High School Early College DC (Bard DC)    dcps        72.7
+                        Kramer Middle School    dcps        65.2
+         Lawrence E. Boone Elementary School    dcps        62.4
+   Ron Brown College Preparatory High School    dcps        61.6
+KIPP DC PCS - Legacy College Preparatory PCS charter        60.5
+                 Patterson Elementary School    dcps        57.9
+         Malcolm X Elementary School @ Green    dcps        57.7
+                   Ketcham Elementary School    dcps        56.5
+                      King Elementary School    dcps        55.7
+                     Simon Elementary School    dcps        53.0
+                   Hendley Elementary School    dcps        51.3
+               KIPP DC - Inspire Academy PCS charter        44.6
+                   Houston Elementary School    dcps        43.6
+                          Hart Middle School    dcps        43.0
+          Randle Highlands Elementary School    dcps        40.8
+                 KIPP DC - Honor Academy PCS charter        40.3
+
+Association only. Charter schools draw students citywide, so their location is a weak proxy.
